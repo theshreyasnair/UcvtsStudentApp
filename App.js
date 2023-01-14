@@ -26,35 +26,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import Navbar from './src/components/Navbar.js';
-
-/* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
- * LTI update could not be added via codemod */
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+import Navigator from "./src/routes/homeStack";
+import Home from "./src/views/HomeScreen/HomeScreen"
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -64,18 +37,8 @@ const App: () => Node = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <Navbar />
-      <Section title = "Are You Serious Right Now Bro">
-        <Text>
-          Really dude
-        </Text>
-      </Section>
-    </SafeAreaView>
+    //<Navigator />
+    <Home />
   );
 };
 
